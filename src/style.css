@@ -166,6 +166,7 @@ body {
 }
 .input_text {
   border: none;
+  outline: none;
 }
 .button_delete {
   border-radius: 50%;
