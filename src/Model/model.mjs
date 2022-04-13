@@ -17,9 +17,12 @@ export default class Model {
       a.toLowerCase() < b.toLowerCase() ? -1 : 1
     );
   }
-  sortTaskReverse(el) {
+  sortTaskReverse() {
     this.arr = this.arr.sort((a, b) =>
       a.toLowerCase() < b.toLowerCase() ? 1 : -1
     );
+  }
+  changeTask(index, newTask) {
+    this.arr[index] = newTask;
   }
 }
