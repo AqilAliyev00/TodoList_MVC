@@ -14,6 +14,10 @@ export default class Controller {
         value: item,
       });
 
+      this.inputText.addEventListener("keyup", (event) => {
+        this.model.changeTask(index, event.target.value);
+      });
+
       this.buttonDelete = this.view.createButton({
         text: "x",
         class: "button_delete",
