@@ -99,18 +99,18 @@ export default class View {
   renderTodo() {
     this.yellowDiv = this.createDiv({
       id: "yellowDiv",
-      class: "yellow_div",
+      class: "yellow-div",
     });
 
     this.plus = this.createDiv({
       text: "+",
       id: "buttonPlus",
-      class: "button_plus",
+      class: "button-plus",
     });
 
     this.buttonText = this.createButton({
       text: "Добавить",
-      class: "button_text",
+      class: "button-text",
       id: "buttonText",
     });
 
@@ -140,7 +140,7 @@ export default class View {
     });
 
     this.buttonSort = this.createButton({
-      class: "button_sort",
+      class: "button-sort",
       id: "buttonSort",
       type: "button",
     });
