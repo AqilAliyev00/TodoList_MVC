@@ -54,15 +54,6 @@ export default class View {
     return form;
   }
 
-  createLable(props) {
-    const lable = document.createElement("lable");
-
-    props.text && (lable.innerText = props.text);
-    props.id && (lable.id = props.id);
-
-    return lable;
-  }
-
   createUl(props) {
     const ul = document.createElement("ul");
 
