@@ -113,6 +113,8 @@ body {
   border-radius: 10px;
   width: 286px;
   border: 1px solid #c4c4c4;
+  max-height: 200px;
+  overflow: scroll;
 }
 
 #mainList {
