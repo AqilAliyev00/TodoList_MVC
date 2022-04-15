@@ -8,7 +8,7 @@ export default class Controller {
     this.model.arr.forEach((item, index) => {
       this.inputText = this.view.createInput({
         type: "text",
-        class: "input_text",
+        class: "input-text",
         id: "inputText",
         name: "inputName",
         value: item,
@@ -20,13 +20,13 @@ export default class Controller {
 
       this.buttonDelete = this.view.createButton({
         text: "x",
-        class: "button_delete",
+        class: "button-delete",
         id: "buttonDelete",
         type: "button",
       });
 
       this.li = this.view.createLi({
-        class: "addNewTask",
+        class: "add-New-Task",
       });
 
       this.li.appendChild(this.inputText);
@@ -51,7 +51,7 @@ export default class Controller {
       const data = new FormData(event.target);
       const newTask = data.get("inputName");
       if (newTask !== "") {
-        this.view.ul.className = "main_list";
+        this.view.ul.className = "main-list";
         this.model.addTask(newTask);
         this.renderItems();
 
@@ -61,8 +61,8 @@ export default class Controller {
 
     this.view.buttonSort.addEventListener("click", (event) => {
       this.model.sortTask();
-      event.target.classList.toggle("button_sort");
-      if (event.target.className !== "button_sort") {
+      event.target.classList.toggle("button-sort");
+      if (event.target.className !== "button-sort") {
         this.model.sortTaskReverse();
         this.view.changeImage();
       } else {
