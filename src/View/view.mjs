@@ -89,6 +89,16 @@ export default class View {
     return img;
   }
 
+  changeH1(props) {
+    const h1 = document.createElement("h1");
+
+    props.id && (h1.id = props.id);
+    props.class && (h1.class = props.class);
+    props.text && (h1.innerText = props.text);
+
+    return h1;
+  }
+
   changeImage() {
     this.imageSort.src = "./assets/images/Group 90.png";
   }
@@ -130,9 +140,14 @@ export default class View {
       id: "mainForm",
     });
 
-    this.label = this.createLable({
+    this.contentDiv = this.createDiv({
+      id: "contentDiv",
+    });
+
+    this.h1 = this.changeH1({
       text: "To-Do List",
-      id: "labelText",
+      class: "header-text",
+      id: "headerText",
     });
 
     this.ul = this.createUl({
@@ -150,14 +165,15 @@ export default class View {
     });
 
     this.form.appendChild(this.yellowDiv);
-    this.form.appendChild(this.label);
+    this.form.appendChild(this.contentDiv);
     this.form.appendChild(this.ul);
     this.form.appendChild(this.buttonAdd);
 
     this.buttonSort.appendChild(this.imageSort);
 
-    this.label.appendChild(this.buttonSort);
-    this.label.appendChild(this.input);
+    this.contentDiv.appendChild(this.h1);
+    this.contentDiv.appendChild(this.buttonSort);
+    this.contentDiv.appendChild(this.input);
 
     this.buttonAdd.appendChild(this.plus);
     this.buttonAdd.appendChild(this.buttonText);
