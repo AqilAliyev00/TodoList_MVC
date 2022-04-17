@@ -103,13 +103,7 @@ export default class View {
       class: "yellow-div",
     });
 
-    this.plus = this.createDiv({
-      text: "+",
-      id: "buttonPlus",
-      class: "button-plus",
-    });
-
-    this.buttonText = this.createButton({
+    this.buttonText = this.createDiv({
       text: "Добавить",
       class: "button-text",
       id: "buttonText",
@@ -150,6 +144,7 @@ export default class View {
       id: "buttonSort",
       type: "button",
     });
+
     this.imageSort = this.createImage({
       id: "imageSort",
       src: "./assets/images/Group 74.png",
@@ -166,7 +161,6 @@ export default class View {
     this.contentDiv.appendChild(this.buttonSort);
     this.contentDiv.appendChild(this.input);
 
-    this.buttonAdd.appendChild(this.plus);
     this.buttonAdd.appendChild(this.buttonText);
 
     this.root.appendChild(this.form);
