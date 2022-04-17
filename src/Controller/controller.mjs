@@ -3,6 +3,34 @@ export default class Controller {
     this.view = view;
     this.model = model;
   }
+  initForm() {
+    this.view.form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const data = new FormData(event.target);
+      const newTask = data.get("inputName");
+      if (newTask !== "") {
+        this.view.ul.className = "main-list";
+        this.model.addTask(newTask);
+        this.renderItems();
+
+        this.view.input.value = "";
+      }
+    });
+  }
+  inputSort() {
+    this.view.buttonSort.addEventListener("click", (event) => {
+      this.model.sortTask();
+      event.target.classList.toggle("button-sort");
+      if (event.target.className !== "button-sort") {
+        this.model.sortTaskReverse();
+        this.view.changeImage();
+      } else {
+        this.model.sortTask();
+        this.view.changeImageDefault();
+      }
+      this.renderItems();
+    });
+  }
   renderItems() {
     this.view.ul.innerText = "";
     this.model.arr.forEach((item, index) => {
@@ -45,31 +73,7 @@ export default class Controller {
 
   init() {
     this.view.init();
-
-    this.view.form.addEventListener("submit", (event) => {
-      event.preventDefault();
-      const data = new FormData(event.target);
-      const newTask = data.get("inputName");
-      if (newTask !== "") {
-        this.view.ul.className = "main-list";
-        this.model.addTask(newTask);
-        this.renderItems();
-
-        this.view.input.value = "";
-      }
-    });
-
-    this.view.buttonSort.addEventListener("click", (event) => {
-      this.model.sortTask();
-      event.target.classList.toggle("button-sort");
-      if (event.target.className !== "button-sort") {
-        this.model.sortTaskReverse();
-        this.view.changeImage();
-      } else {
-        this.model.sortTask();
-        this.view.changeImageDefault();
-      }
-      this.renderItems();
-    });
+    this.initForm();
+    this.inputSort();
   }
 }
